@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Dibujando con canvas</title>
+    <style>
+        body {
+            padding-left: 2em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        .page {
+            display: flex;
+        }
+        .options {
+            margin-right: 2em;
+            font-size: 1.5em;
+        }
+        #dibujito {
+            border: 1px solid black;
+        }
+        #texto_lineas,
+        #t-canvas {
+            border: 1px solid rgba(0, 0, 0, 0.6);
+        }
+        .paint-now {
+            height: 3em;
+            width: 10em;
+            font-size: 0.8em;
+            font-weight: bold;
+            background-color: silver;
+            box-shadow: 1px 1px 1px;
+            border-radius: 5px;
+        }
+        .paint {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .delete-paint {
+            height: 3em;
+            width: 10em;
+            font-size: 0.8em;
+            font-weight: bold;
+            background-color: silver;
+            box-shadow: 1px 1px 1px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dibujo en canvas</h1>
+    <div class="page">
+        <div class="options">
+        <p>
+            <label for="texto_lineas"><b>¿Cuantas lineas quieres?</b></label>
+            <input type="text" placeholder="# de lineas" maxlength="3" id="texto_lineas" />
+        </p>
+        <p>
+            <label for="color"><b>Escoge un color </b></label>
+            <input type="color" id="color"><br>
+        </p>
+        <p>
+            <b>Escoge en que parte lo quieres:</b>
+            <select id="lado">
+                <option value="superior_izquierdo">superior izquierdo</option>
+                <option value="superior_derecho">superior derecho</option>
+                <option value="inferior_izquierdo">inferior izquierdo</option>
+                <option value="inferior_derecho">inferior derecho</option>
+                <option value="todo">todo</option>
+            </select>
+        </p>
+        <p>
+            <label for="t-canvas"><b>¿De que tamaño lo quieres?</b></label>
+            <input type="text" placeholder="ejemplo:''300''" maxlength="4" id="t-canvas">
+        </p>
+        <p>
+            <input class="paint-now" type='button' value='Dibujar ahora!' id='botoncito' />
+        </p>
+        </div>
+        <div class="paint">
+        <canvas id="dibujito"></canvas>
+        <p>Así queda tu dibujo</p>
+        <p>
+            <input class="delete-paint" type='button' value='Borrar dibujo' id='clear' />
+        </p>
+        </div>
+    </div>
+
+
+    <script src='./dibujo_lineas.js'></script>
+</body>
+
+</html>
